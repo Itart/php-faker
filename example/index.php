@@ -1,10 +1,16 @@
-<?php include 'faker.php'; ?><html>
+<html>
 	<head>
 		<title>Generating random data</title>
 	</head>
 	<body>
 		
 		<?php
+		
+		spl_autoload_register(function($class) {
+		    $classFile = str_replace('\\', '/', $class);
+		    require_once __DIR__ . '/../lib/' . $classFile . '.php';
+		});
+		
 		$arr = array(
 			'Name' => array(
 					'name',
@@ -57,7 +63,7 @@
 ?>
 
 	<table>
-		<legend>$f = new Faker</legend>
+		<legend>$f = new PHPFaker\Faker()</legend>
 		<tr>
 			<th>PHP Statement</th>
 			<th>Output</th>
@@ -65,7 +71,7 @@
 	
 		<?php
 	
-		$f = new Faker;
+		$f = new PHPFaker\Faker();
 	
 		foreach ($arr as $class => $methods) {
 			foreach ($methods as $method) {
