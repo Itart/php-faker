@@ -35,7 +35,7 @@ abstract class AbstractGenerator
     {
         return $this->_faker->getGenerator($name);
     }
-
+    
     /**
      * Returns a random element from a passed array
      *
@@ -116,6 +116,13 @@ abstract class AbstractGenerator
         return $result;
     }
 
+    /**
+    * Return default generator name.
+    *
+    * @return string
+    */
+    abstract function getName();
+    
     public function __construct(Faker $faker)
     {
         $this->_faker = $faker;

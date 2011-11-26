@@ -58,13 +58,12 @@ class Faker
     /**
      * Registry generator instance in faker.
      *
-     * @param string $name Generator access name as <code>$faker->:name:</code>
      * @param \PHPFaker\Generator\AbstractGenerator $generator Generator instance
      * @return \PHPFaker\Faker
      */
-    public function registryGenerator($name, AbstractGenerator $generator)
+    public function registryGenerator($generator)
     {
-        $this->_instances[$name] = $generator;
+        $this->_instances[$generator->getName()] = $generator;
 
         return $this;
     }
@@ -77,8 +76,8 @@ class Faker
      */
     public function registryGenerators(array $generators)
     {
-        foreach ($generators as $name => $generator) {
-            $this->registryGenerator($name, $generator);
+        foreach ($generators as $generator) {
+            $this->registryGenerator($generator);
         }
         return $this;
     }
@@ -123,7 +122,7 @@ class Faker
 
         $generatorClass = __NAMESPACE__ . '\\Generator\\' . ucfirst($name) . 'Generator';
         if (class_exists($generatorClass)) {
-            $this->registryGenerator($name, $generator = new $generatorClass($this));
+            $this->registryGenerator($generator = new $generatorClass($this));
             return $generator;
         }
 

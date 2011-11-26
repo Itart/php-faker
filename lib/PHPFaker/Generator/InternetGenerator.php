@@ -24,6 +24,11 @@ class InternetGenerator extends AbstractGenerator
     private static $_free = array('gmail.com', 'googlemail.com', 'yahoo.com', 'hotmail.com', 'hotmail.co.uk');
     private static $_name_formats = array(array('firstName'), array('firstName', 'surname'));
 
+    public function getName()
+    {
+        return 'internet';
+    }
+    
     protected function sanitiseName($name)
     {
         $name = strtolower($name);

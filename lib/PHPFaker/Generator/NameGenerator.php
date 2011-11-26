@@ -30,6 +30,11 @@ class NameGenerator extends AbstractGenerator
 
     private static $_suffix = array('Jr.', 'Sr.', 'I', 'II', 'III', 'IV', 'V', 'MD', 'DDS', 'PhD', 'DVM');
 
+    public function getName()
+    {
+        return 'name';
+    }
+    
     public function name()
     {
         $a = $this->random(self::$_formats);

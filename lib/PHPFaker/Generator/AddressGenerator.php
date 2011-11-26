@@ -29,6 +29,11 @@ class AddressGenerator extends AbstractGenerator
     private static $_uk_postcode_formats = array( '??## #??', '??# #??' );
     private static $_street_name_formats = array('firstName','surname');
 
+    public function getName()
+    {
+        return 'address';
+    }
+    
     public function streetSuffix()
     {
         return $this->random(self::$_street_suffix);

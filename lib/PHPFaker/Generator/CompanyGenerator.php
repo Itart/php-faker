@@ -26,6 +26,11 @@ class CompanyGenerator extends AbstractGenerator
     private static $_suffix = array('Inc','andSons','LLC','Group','PLC','Ltd');
     private static $_name_formats = array(array('surname','','surname'),array('surname','-','surname'),array('surname','','surname','and','surname'));
 
+    public function getName()
+    {
+        return 'company';
+    }
+    
     public function name()
     {
         foreach ($this->random(self::$_name_formats) as $elem) {
