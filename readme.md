@@ -26,6 +26,8 @@ Based on original Caius Durling faker library (http://github.com/caius/php-faker
 
 ## CHANGELOG
 
+* 0.5.1
+    Minor update
 * 0.5.0
     Update generator registration mechanism
 * 0.4.0

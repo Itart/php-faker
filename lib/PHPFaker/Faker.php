@@ -61,7 +61,7 @@ class Faker
      * @param \PHPFaker\Generator\AbstractGenerator $generator Generator instance
      * @return \PHPFaker\Faker
      */
-    public function registryGenerator($generator)
+    public function registryGenerator(AbstractGenerator $generator)
     {
         $this->_instances[$generator->getName()] = $generator;
 
